@@ -6,7 +6,7 @@
 /*   By: bde-meij <bde-meij@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:48:02 by bde-meij          #+#    #+#             */
-/*   Updated: 2022/06/01 11:19:54 by bde-meij         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:46:33 by bde-meij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,24 +58,24 @@ void	my_scrollhook(double xdelta, double ydelta, void *fs)
 
 void	my_keyhook(mlx_key_data_t keydata, void *fs)
 {
-	if (keydata.key == MLX_KEY_RIGHT && keydata.action == 1)
+	if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
 		((t_fruct *)fs)->movx += .5 * ((t_fruct *)fs)->zum;
-	else if (keydata.key == MLX_KEY_LEFT && keydata.action == 1)
+	else if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
 		((t_fruct *)fs)->movx -= .5 * ((t_fruct *)fs)->zum;
-	else if (keydata.key == MLX_KEY_DOWN && keydata.action == 1)
+	else if (keydata.key == MLX_KEY_DOWN && keydata.action == MLX_PRESS)
 		((t_fruct *)fs)->movy += .5 * ((t_fruct *)fs)->zum;
-	else if (keydata.key == MLX_KEY_UP && keydata.action == 1)
+	else if (keydata.key == MLX_KEY_UP && keydata.action == MLX_PRESS)
 		((t_fruct *)fs)->movy -= .5 * ((t_fruct *)fs)->zum;
-	else if (keydata.key == MLX_KEY_Z && keydata.action == 1)
+	else if (keydata.key == MLX_KEY_Z && keydata.action == MLX_PRESS)
 		((t_fruct *)fs)->zum *= .8;
-	else if (keydata.key == MLX_KEY_X && keydata.action == 1)
+	else if (keydata.key == MLX_KEY_X && keydata.action == MLX_PRESS)
 		((t_fruct *)fs)->zum /= .8;
-	else if (keydata.key == MLX_KEY_R && keydata.action == 1)
+	else if (keydata.key == MLX_KEY_R && keydata.action == MLX_PRESS)
 		ini_struct(((t_fruct *)fs), ((t_fruct *)fs)->arg, ((t_fruct *)fs)->arc);
 	else if ((keydata.key == MLX_KEY_C || keydata.key == MLX_KEY_V || \
-		keydata.key == MLX_KEY_B) && keydata.action == 1)
+		keydata.key == MLX_KEY_B) && keydata.action == MLX_PRESS)
 		shiftcolpos(((t_fruct *)fs), keydata.key);
-	else if (keydata.key == MLX_KEY_ESCAPE && keydata.action == 1)
+	else if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
 		// mlx_delete_image(((t_fruct *)fs)->mlx, ((t_fruct *)fs)->g_img);
 		// mlx_terminate(((t_fruct *)fs)->mlx);

@@ -6,7 +6,7 @@
 /*   By: bde-meij <bde-meij@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:45:28 by bde-meij          #+#    #+#             */
-/*   Updated: 2022/06/01 11:18:01 by bde-meij         ###   ########.fr       */
+/*   Updated: 2022/06/01 12:54:19 by bde-meij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,18 @@ int	display_options(int gen_value)
 options are: 'mandelbrot', 'julia_one',\n'julia_two',\
 'julia_three' and 'burningship'\n\
 OR... you can give two values ranging from '-2' to '2'\n\
-example: ./fractol -0.85 -0.22\n\n", 1);
+example: ./fractol -1.65 0.00\n\n", 1);
 	}
 	else
 		ft_putstr_fd("\nwelcome to my fractal explorer!\n\n\
-Controls are: arrow keys for movement,\n\
-'z' and 'x' will zoom to/from current centre,\n\
-while mousewheel will zoom to mouseposition.\n\
-Press 'c' and 'v' quickly to !*** DISCO ***!\n\n\
-press 'r' to restart position, or hit 'escape' to quit.\n\n", 1);
+Controls are: \n\
+arrow keys	-movement\n\
+z/x		-zoom current centre\n\
+mousewheel	-zoom mouseposition\n\
+v/b		-Transform (burningship or julia)\n\
+c		-*DISCO!*\n\
+r		-Restart\n\
+esc		-Quit\n\n", 1);
 	return (gen_value);
 }
 
@@ -112,10 +115,7 @@ int	main(int ac, char **av)
 	t_fruct	fs;
 
 	if ((ac < 2) || (ac > 3))
-	{
-		system("leaks -q fractol");
 		return (display_options(0), 1);
-	}
 	ini_struct(&fs, av, ac);
 	fs.mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
 	if (!fs.mlx)
@@ -124,7 +124,6 @@ int	main(int ac, char **av)
 	if (!fs.g_img)
 		exit(EXIT_FAILURE);
 	mlx_image_to_window(fs.mlx, fs.g_img, 0, 0);
-	system("leaks -q fractol");
 	if (display_options(generate_fractal(&fs)) != 0)
 	{
 		mlx_key_hook(fs.mlx, &my_keyhook, (void *)&fs);
@@ -132,6 +131,5 @@ int	main(int ac, char **av)
 		mlx_loop(fs.mlx);
 	}
 	mlx_terminate(fs.mlx);
-	system("leaks -q fractol");
 	return (EXIT_SUCCESS);
 }

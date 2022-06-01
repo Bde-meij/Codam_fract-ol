@@ -6,7 +6,7 @@
 #    By: bde-meij <bde-meij@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 15:01:10 by bde-meij          #+#    #+#              #
-#    Updated: 2022/06/01 11:44:16 by bde-meij         ###   ########.fr        #
+#    Updated: 2022/06/01 12:47:06 by bde-meij         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT		= ./lib/libft
 LIBMLX		= ./lib/MLX42
 LIBS		= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a $(LIBFT)/libft.a
 
-all : libft libmlx $(NAME)
+all : libmlx libft $(NAME)
 
 libft:
 	@$(MAKE) -s -C $(LIBFT)
@@ -33,13 +33,13 @@ $(NAME) : $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
 	
 clean:
-	@$(MAKE) -s -C $(LIBFT) clean
 	@$(MAKE) -s -C $(LIBMLX) clean
+	@$(MAKE) -s -C $(LIBFT) clean
 	rm -f $(OBJ)
 
 fclean:
-	@$(MAKE) -s -C $(LIBFT) fclean
 	@$(MAKE) -s -C $(LIBMLX) fclean
+	@$(MAKE) -s -C $(LIBFT) fclean
 	rm -f $(NAME) $(OBJ)
 
 re: fclean all

@@ -1,7 +1,7 @@
 # fract-ol
 My really epic fract-ol; It can display mandelbrot and Julias and zoom to mouse position. Used minimal c libraries and MLX (codam library) for the graphics
 
-to run the program one first needs to have glfw installed
+to run the program, you first need to have glfw installed
 
 run "make" in the root directory
 run the program with "./fractol" and an option ("./fractol mandelbrot" for example)

@@ -1,6 +1,5 @@
-# fract-ol
-My really epic fract-ol  
-It displays mandelbrot and Julias, and can zoom to mouse position.   
+# fract-ol  
+The fract-ol project displays mandelbrot and Julias, and can zoom to mouse position.   
 Used minimal c libraries and MLX42 (codam library built on openGL) for the graphics   
 
 to run the program, you first need to have glfw installed   
